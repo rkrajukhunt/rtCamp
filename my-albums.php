@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <style type="text/css">
   body {
@@ -381,6 +381,7 @@
 
   function moveAlbum(id){
     var c=getCookie('credentials');
+    alert(c);
     if(c!="")
     {
       $("#msg").html("Uploading....");
@@ -390,7 +391,7 @@
         if (this.readyState == 4 && this.status == 200) {
           if(this.responseText="sucess"){
               $('#myModal').modal('toggle');
-              alert("Sucesss...");
+              swal("Good job!", "Album successfully uploaded!", "success");
             }
         }
         else if(this.readyState == 4 && this.status != 200)
