@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <style type="text/css">
   body {
@@ -172,20 +172,30 @@
       </center>
 
   <div class="modal" id="mySlider">
-    <div class="modal-dialog modal-full" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div id="demo" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" id="img-container">
-  
-            </div>
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </a>
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-        </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" id="img-container">
+    
+                </div>
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div> 
     </div>
 </div>
 </body>
@@ -347,7 +357,7 @@
     
      document.getElementById("img-container").innerHTML = '';
 
-     $("#img-container").append("<div class='carousel-item active'><img src='images/wc.jpg' style='height : 100vh; width:100% '></div>");
+     $("#img-container").append("<div class='carousel-item active'><img src='images/wc.jpg'></div>");
     loadImages(id);
    // doFS();
     $('#mySlider').modal('toggle');
@@ -381,7 +391,6 @@
 
   function moveAlbum(id){
     var c=getCookie('credentials');
-    alert(c);
     if(c!="")
     {
       $("#msg").html("Uploading....");
