@@ -171,8 +171,8 @@
         </div>
       </center>
 
-  <div class="modal" id="mySlider">
-    <div class="modal-dialog" role="document">
+  <div class="modal" id="mySlider" style="padding-bottom: 15px; padding-right: 15px;padding-left: 15px;">
+    <div class="modal-dialog modal-full" role="document">
         <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
@@ -191,10 +191,6 @@
                   <span class="carousel-control-next-icon"></span>
                 </a>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
         </div> 
     </div>
 </div>
@@ -353,11 +349,11 @@
   function downloadAllAlbums(){
        downloadSelectedAlbums();
   }
-    function displaySlider(id){
+
+  function displaySlider(id){
     
      document.getElementById("img-container").innerHTML = '';
-
-     $("#img-container").append("<div class='carousel-item active'><img src='images/wc.jpg'></div>");
+    $("#img-container").append("<div class='carousel-item active'><img src='images/wc.jpg' style='height : 100vh; width:100% '></div>");
     loadImages(id);
    // doFS();
     $('#mySlider').modal('toggle');
