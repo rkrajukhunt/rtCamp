@@ -1,26 +1,31 @@
 <?php
-  
-  require_once('fb-config.php');
-  session_start();
+try {
+    if (!session_id()) {
+        session_start();
+    }
+    require_once('fb-config.php');
+    session_start();
 
-  $fb = new Facebook\Facebook([
-    'app_id' => APP_ID, // Replace {app-id} with your app id
-    'app_secret' => APP_SECRET,
-    'default_graph_version' => 'v2.2',
-    'default_access_token' => isset($_SESSION['facebook_access_token']) ? $_SESSION['facebook_access_token']  : APP_SECRET
-  ]);
-  $helper = $fb->getRedirectLoginHelper();
-  $permissions=['email','user_photos'];
-  $loginUrl= $helper->getLoginUrl(REDIRECT_URL,$permissions);
+    $fb = new Facebook\Facebook([
+        'app_id' => APP_ID, // Replace {app-id} with your app id
+        'app_secret' => APP_SECRET,
+        'default_graph_version' => 'v2.2',
+        'default_access_token' => isset($_SESSION['facebook_access_token']) ? $_SESSION['facebook_access_token'] : APP_SECRET
+    ]);
+    $helper = $fb->getRedirectLoginHelper();
+    $permissions = ['email', 'user_photos'];
+    $loginUrl = $helper->getLoginUrl(REDIRECT_URL, $permissions);
+    $accessToken = $helper->getAccessToken();
+    if (isset($accessToken))
+        $_SESSION['facebook_access_token'] = (string) $accessToken;
 
-  $accessToken= $helper->getAccessToken();
-  if(isset($accessToken))
-      $_SESSION['facebook_access_token']= (string) $accessToken;
-
-  if(isset($_SESSION['facebook_access_token']))
-      header('location:'.DOMAIN.'my-albums.php');
-    
+    if (isset($_SESSION['facebook_access_token']))
+        header('location:' . DOMAIN . 'my-albums.php');
+} catch (Exception $ex) {
+    header('location:' . DOMAIN);
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

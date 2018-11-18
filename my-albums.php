@@ -12,10 +12,10 @@
     'default_access_token' => isset($_SESSION['facebook_access_token']) ? $_SESSION['facebook_access_token']  : APP_SECRET
     ]);
 
-  if(isset($_GET['download']))
-  {
+  if(isset($_GET['download'])){
     echo '<iframe src="download.php?link='.$_GET['download'].'" id="ifame" style="display : none"></iframe>';
   }
+  
   try
   { 
     $accessToken= $_SESSION['facebook_access_token'];
