@@ -10,7 +10,7 @@
     
     /* for live application*/ 
     define('REDIRECT_URL', 'https://rajukhuntrtcamp.herokuapp.com/index.php');
-    define('DOMAIN',"https://rajukhuntrtcamp.herokuapp.com/index.php");
+    define('DOMAIN',"https://rajukhuntrtcamp.herokuapp.com/");
     /* end */
 
     require_once './lib/Facebook/autoload.php';
