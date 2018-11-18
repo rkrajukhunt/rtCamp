@@ -75,13 +75,13 @@
     height: 100%;
     width:100%;
   }
-  .carousel-inner img {
+ .carousel-inner img {
     margin: auto;
 } 
-  .card-img-top{
+ .card-img-top{
     height: 350px;
-  }
-   .modal-full {
+ }
+ .modal-full {
     min-width: 100%;
     margin: 0;
 }
@@ -482,5 +482,5 @@ if (document.addEventListener)
       }
     }
   }
-
+  
 </script>
